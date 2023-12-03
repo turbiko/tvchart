@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% load static %} {% load i18n wagtailcore_tags wagtailimages_tags%} {% block body_class %}template-homepage{% endblock %} {% block extra_css %} {% comment %} Delete the line below if you're just getting started and want to remove
+the welcome screen! {% endcomment %}
+<!--<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/home1.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,600,600i,700,700i&amp;subset=cyrillic" rel="stylesheet">
+{% endblock extra_css %} {% block content %}
+<div class="b-tv-list">
+    <div id="366_body">
+        <div id="tv" class="b-tv">
+            <div class="b-block-wrap b-holder">
+                <div class="h-block-wrap">
+                    <div class="b-content clear">
+                        <div class="b-content-block">
+                            <div class="b-content-holder">
+                                <div class="h-content-holder">
+                                    <h1 class="title">{{self.title}}</h1>
+
+
+                                    <div class="b-static-img b-tv-img">
+                                        {% image page.program_image width-920 %}
+                                    </div>
+
+
+                                    <div class="section group">
+                                        <div class="col span_2_of_3">
+                                            <div class="b-static-text b-tv-text">
+                                                <p>{{self.body|safe}}</p>
+                                            </div>
+
+
+                                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e8eebe070fb6ca5"></script>
+                                        <!--    <div class="b-share">
+                                                <div class="addthis_inline_share_toolbox_q1il"></div>
+                                            </div>
+					-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n wagtailcore_tags wagtailimages_tags%}
+{% block body_class %}template-homepage{% endblock %}
+{% block extra_css %}
+<!--<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/home1.css' %}">
+{% endblock extra_css %}
+{% block content %}
+<div id="366_body">
+
+<div class="b-block-wrap">
+    <div class="b-main-tv">
+                <div class="section group">
+        <div class="col span_1_of_3">
+            <div class="b-main-tvanons andmore">
+                <div class="b-main-tvanons-img">
+                    <a href="/programs/health"><img class="programs_img" src="/media/images/health.max-800x600.png" alt="health" /></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col span_1_of_3">
+            <div class="b-main-tvanons mamontov">
+                <div class="b-main-tvanons-img">
+                    <a href="/programs/serials_films"><img class="programs_img" src="/media/images/serials_films_jQcAsxf.width-400.png" alt="" /></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col span_1_of_3">
+            <div class="b-main-tvanons yoga">
+                <div class="b-main-tvanons-img">
+                    <a href="/programs/documental"><img class="programs_img" src="/media/images/documental_EGL7Y2S.width-400.png " alt=" " /></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section group">
+        <div class="col span_1_of_3">
+            <div class="b-main-tvanons happy">
+                <div class="b-main-tvanons-img">
+                    <a href="/programs/cooking "><img class="programs_img" src="/media/images/cooking_NSifH4o.width-400.png " alt=" " /></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col span_1_of_3">
+            <div class="b-main-tvanons zdorovo">
+                <div class="b-main-tvanons-img">
+                    <a href="/programs/willage-life "><img class="programs_img" src="/media/images/willage_life_fntWB3B.width-400.png " alt=" " /></a>
+                </div>
+
+            </div>
+        </div>
+        <div class="col span_1_of_3">
+            <div class="b-main-tvanons sex">
+                <div class="b-main-tvanons-img">
+                    <a href="/programs/fitness-sport "><img class="programs_img" src="/media/images/fitness_sport.width-400.png " alt=" " /></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+
+<div class="b-block-about" id="about">
+    <div class="b-block-wrap">
+        <div class="b-block-about-text">
+            <div class="b-block-name">{{self.about_channel_title}}</div>
+
+            <div class="b-static-text">
+
+                {{self.about_channel_text|safe}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if self.offer_for_sposnsors_title %}
+<div class="b-block-sponsor" id="sponsorship">
+    <div class="b-block-wrap">
+        <div class="b-block-name"> {{self.offer_for_sposnsors_title}}</div>
+
+        <div class="b-sponsor-text">
+            {{self.offer_for_sposnsors_text|safe}}
+        </div>
+
+        <div class="b-sponsor-contact">
+            <p>
+                <a href="mailto:{{self.offer_for_sponsor_img_email}}">{{self.offer_for_sponsor_img_email}}</a><br/>
+            </p>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% if self.distributor_title %}
+<div class="b-block-distr" id="distributor">
+    <div class="b-block-wrap">
+        <div class="b-block-distr-text">
+            <div class="b-block-name orange">
+                {{self.distributor_title}}
+            </div>
+            <div class="b-static-text">
+                <div class="section group">
+                    <div class="col span_2_of_3">
+                        <div class="b-distributor-text">
+                            <p>
+                                {{self.distributor_intro|safe}}
+                            </p>
+
+                            <h2>{{self.distributor_name}}</h2>
+                            <p>{{self.distributor_address}}<br/> <br/>
+                                <a href="mailto:{{self.distributor_email}}">{{self.distributor_email}}</a>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+    {% comment %} Delete the line below if you're just getting started and want to remove the static html! {% endcomment %}
+    {% include 'home/static.html' %}
+
+</div>
+{% endblock content %}

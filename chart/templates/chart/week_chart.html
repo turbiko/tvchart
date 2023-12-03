@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n wagtailcore_tags wagtailimages_tags %}
+{% block body_class %}template-homepage{% endblock %}
+{% block extra_css %} {% comment %} Delete the line below if you're just getting started and want to remove the welcome screen! {% endcomment %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/home1.css' %}">
+
+{% endblock extra_css %}
+{% block content %}
+<div class="b-tv-list">
+
+        <!-- programs calendar -->
+<div class="b-tv-list">
+    <div id="366_body">
+        <div id="tv" class="b-tv">
+            <div class="b-block-wrap b-holder">
+                <div class="h-block-wrap">
+                    <div class="b-content clear">
+                        <div class="b-content-block">
+                            <div class="b-content-holder">
+                                <div class="h-content-holder programs-grid">
+
+                                    <!-- TV PROGRAM -->
+{% for date, chart_lines in chart_lines_by_date.items %}
+    <div class="pr-grid-time"></div>
+      <div class="pr-grid-title-date"><h2>{{ date|date:"l, d.m.Y" }}</h2></div>
+      <div class="pr-grid-date-title"><h3> Время </h3></div>
+      <div class="pr-grid-title-name"><h3>	Название </h3></div>
+
+      {% for line in chart_lines %}
+        <div class="pr-grid-time">{{ line.start_time|time:"H:i" }}
+        </div>
+        <div class="pr-grid-title">{{ line.program_title }}
+        </div>
+      {% endfor %}
+
+{% endfor %}
+                                    <!-- END  TV PROGRAM -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

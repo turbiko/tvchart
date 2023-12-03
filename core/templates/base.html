@@ -1,0 +1,120 @@
+{% load static wagtailcore_tags wagtailimages_tags  wagtailuserbar menus_tags %}
+{% get_menu "main" as navigation %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="ru"> <!--<![endif]-->
+    <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KFD7NQV');</script>
+<!-- End Google Tag Manager -->
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% wagtail_site as current_site %}
+                {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% endblock %}
+        </title>
+        <meta property="og:description" content="Телеканал «OTV». ">
+	    <link rel="icon" type="image/x-icon" href="/static/images/favicon.ico">
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {# Global stylesheets #}
+        <link rel="stylesheet" href="https://bootswatch.com/4/superhero/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/core.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/menutop.css' %}">
+        {% block extra_css %}
+        {# Override this in templates to add extra stylesheets #}
+
+        {% endblock %}
+
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KFD7NQV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+        {% wagtailuserbar %}
+
+        {% block header %}
+        <div>
+
+            <div class="wrapper-menu">
+   			<header class="header">
+
+				<div class="header__container">
+					<div class="block_logo">
+					<a href="/" class="header__logo"><img src="/media/original_images/otv_logo_color.png" width=90px></a>
+					</div>
+
+					<div class="header__menu menu">
+						<div class="menu__icon">
+							<span></span>
+						</div>
+						<nav class="menu__body">
+							<ul class="menu__list">
+                                {% for item in navigation.menu_items.all %}
+                                <li><a data-goto=".{{item.goto_tag}}" href="{{ item.link }}" class="menu__link">{{ item.title }}</a></li>
+                                {% endfor %}
+							</ul>
+						</nav>
+					</div>
+					<div class="m-social-block">
+					 <div><a href="https://www.facebook.com/OTVMediaOfficial/" class="header__facebook"><img src="/media/original_images/facebook.png" width=30px></a></div>
+					 <div><a href="https://www.instagram.com/otv.media.official/" class="header__instagram"><img src="/media/original_images/instagram.png" width=30px></a></div>
+					</div>
+				</div>
+
+			</header>
+		</div>
+</div>
+        {% endblock %}
+
+        {% block content %}{% endblock %}
+
+        {% block footer %}
+        <!-- Footer -->
+<footer id="footer" class="b-footer">
+    <div class="h-footer">
+        <div class="b-footer-menu">
+            <ul class="sf-menu">
+                {% for item in navigation.menu_items.all %}
+                <li><a data-goto=".{{item.goto_tag}}" href="{{ item.link }}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        <div class="b-copyright">
+            <p>Copyright © Телеканал «OTV» {% now "Y" %}</p>
+            <p></p>
+        </div>
+
+        <div class="b-footer-element"></div>
+    </div>
+
+</footer>
+<div id="back-top" style="display: block;">
+    <a href="#top"></a>
+</div>
+        {% endblock %}
+
+        {# Global javascript #}
+
+        {% block extra_js %}
+        {# Override this in templates to add extra javascript #}
+
+
+        {% endblock %}
+    <!-- comment -->
+    </body>
+</html>

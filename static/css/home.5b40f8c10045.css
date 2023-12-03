@@ -1,0 +1,68 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul {
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+}
+
+@media (max-width: 996px) {
+    body {
+        max-width: 780px;
+    }
+}
+
+@media (max-width: 767px) {
+    .option {
+        flex: 0 0 50%;
+    }
+}
+
+@media (max-width: 599px) {
+    .main {
+        padding: 15px 0;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+}
+/* custom css for program */
+
+.programs-grid{
+background-color: white;
+display: grid;
+grid-template-columns: minmax(70px, 1fr) minmax(150px, 400vw);
+font-size:1.8em;
+line-height:1.4em;
+font-weight:400
+}
+.pr-grid-date{
+background-color:white;
+padding-bottom:5px;
+}
+.pr-grid-title{
+background-color:white;
+padding-bottom:5px;
+}
+
+.pr-grid-title-date {
+    font-weight: bold;
+    margin: 10px 0;
+}
