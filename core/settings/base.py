@@ -161,3 +161,67 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 WAGTAILADMIN_BASE_URL = "http://otv.media"
+
+WAGTAILADMIN_STATIC_FILE_VERSION_STRINGS = False
+
+
+
+LOGGING = {
+    'version': 1,
+    # The version number of our log
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} {name} {levelname} {module} {message}',
+            'style':  '{',
+        },
+        'simple':  {
+            'format': '{asctime} {levelname} {message}',
+            'style':  '{',
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    # django uses some of its own loggers for internal operations. In case you want to disable them just replace the False above with true.
+    # A handler for WARNING. It is basically writing the WARNING messages into a file called WARNING.log
+
+    #    DEBUG (10) detailed
+    #    INFO (20) informational, all ok but let me know that
+    #    WARNING (30) something wrong, but application will continue
+    #    ERROR (40) application can`t do someting
+    #    CRITICAL (50) application will crash
+
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR + '/' + 'warning.log',
+            'formatter': 'verbose'
+        },
+    },
+    # A logger for WARNING which has a handler called 'file'. A logger can have multiple handler
+    'loggers': {
+        'project': {
+            'handlers':  ['file'],  # notice how file variable is called in handler which has been defined above
+            'level':     'INFO',  # CRITICAL ERROR WARNING INFO DEBUG
+            'propagate': True,
+            'formatter': 'verbose'
+        },
+       # notice the blank '', Usually you would put built in loggers like django or root here based on your needs
+        '': {
+            'handlers': ['console', 'file'], #notice how file variable is called in handler which has been defined above
+            'level': 'DEBUG',
+            'propagate': True,
+            'formatter': 'verbose'
+        },
+    },
+}

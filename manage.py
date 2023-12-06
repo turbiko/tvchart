@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 import sys
+import logging
 
 from core.settings.base import PROJECT_DIR, BASE_DIR
 from core.settings.dev import DEBUG
