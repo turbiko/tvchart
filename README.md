@@ -11,3 +11,7 @@ Load from separate frontend page
 
 Show chart for current week only
 TV-chart fields do not have any relationship with programs pages on site
+
+## Deploy help
+
+docker-compose up  --build
