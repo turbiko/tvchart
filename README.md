@@ -14,4 +14,4 @@ TV-chart fields do not have any relationship with programs pages on site
 
 ## Deploy help
 
-docker-compose up  --build
+docker compose up  --build
