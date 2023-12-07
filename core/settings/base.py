@@ -160,7 +160,7 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://otv.argentum.ua"
+# WAGTAILADMIN_BASE_URL = "http://otv.argentum.ua"
 
 WAGTAILADMIN_STATIC_FILE_VERSION_STRINGS = False
 
