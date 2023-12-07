@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 
 from .base import *
 
-DEBUG = False
+DEBUG = True
 print(f"Running production config: {DEBUG=}")
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
