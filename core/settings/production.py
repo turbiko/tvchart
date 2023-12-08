@@ -36,6 +36,14 @@ DATABASES = {
     }
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://10.1.100.173',
+    'http://127.0.0.1',
+    'http://localhost',
+    'https://otv.argentum.ua',
+    'https://otv.media',
+]
+
 try:
     from .local import *
 except ImportError:
