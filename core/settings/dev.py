@@ -12,8 +12,7 @@ load_dotenv()
 SECRET_KEY = os.environ.get('SECRET_KEY', "dev-django-insecure-1p-plpfl!0v)3(3iob99#%(x@kf$0i#yuk=&&y7=diok16m7d^")
 print(f"{SECRET_KEY=}")
 
-# SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ["*"]
+
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 

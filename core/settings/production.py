@@ -10,13 +10,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 load_dotenv()
 
-ALLOWED_HOSTS = [
-    "10.1.100.173",
-    "127.0.0.1",
-    "localhost",
-    "otv.argentum.ua",
-    "otv.media",
-]
 
 SECRET_KEY = os.environ.get('SECRET_KEY', "django-production-1p-plpfl!0v)3(3iob99#%(x@kf$0i#yuk=&&y7=diok16m7d^")
 print(f"{SECRET_KEY=}")

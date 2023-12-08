@@ -89,6 +89,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "core.wsgi.application"
 
+
+ALLOWED_HOSTS = [
+    "10.1.100.173",
+    "127.0.0.1",
+    "localhost",
+    "otv.argentum.ua",
+    "otv.media",
+]
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
